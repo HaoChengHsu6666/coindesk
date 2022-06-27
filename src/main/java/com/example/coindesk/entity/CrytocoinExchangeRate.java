@@ -1,96 +1,59 @@
 package com.example.coindesk.entity;
 
+import lombok.Getter;
+import lombok.Setter;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedBy;
+import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
+import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.Date;
 
+
+@Getter
+@Setter
+@Table(name = "crytocoin_exchange_rate")
+@Entity
+@EntityListeners(AuditingEntityListener.class)
 public class CrytocoinExchangeRate {
+
+    @Id
+    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
+    @Column(name = "crytocoin_id")
     private int crytocoin_id;
+
+    @Column(name = "crytocoin_code")
     private String crytocoin_code;
+
+    @Column(name = "code")
     private String code;
+
+    @Column(name = "symbol")
     private String symbol;
+
+    @Column(name = "rate")
     private String rate;
+
+    @Column(name = "description")
     private String description;
+
+    @Column(name = "rate_float")
     private double rateFloat;
-    private LocalDate createAt;
-    private LocalDate updateAt;
 
-    public int getId() {
-        return id;
-    }
+    @CreatedDate
+//    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "created_at", columnDefinition = "timestamp not null default current_timestamp")
+    private Date createdAt;
 
-    public void setId(int id) {
-        this.id = id;
-    }
+    @LastModifiedDate
+//    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "updated_at", columnDefinition = "timestamp not null default current_timestamp")
+    private Date updatedAt;
 
-    public int getCrytocoin_id() {
-        return crytocoin_id;
-    }
 
-    public void setCrytocoin_id(int crytocoin_id) {
-        this.crytocoin_id = crytocoin_id;
-    }
-
-    public String getCrytocoin_code() {
-        return crytocoin_code;
-    }
-
-    public void setCrytocoin_code(String crytocoin_code) {
-        this.crytocoin_code = crytocoin_code;
-    }
-
-    public String getCode() {
-        return code;
-    }
-
-    public void setCode(String code) {
-        this.code = code;
-    }
-
-    public String getSymbol() {
-        return symbol;
-    }
-
-    public void setSymbol(String symbol) {
-        this.symbol = symbol;
-    }
-
-    public String getRate() {
-        return rate;
-    }
-
-    public void setRate(String rate) {
-        this.rate = rate;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public double getRateFloat() {
-        return rateFloat;
-    }
-
-    public void setRateFloat(double rateFloat) {
-        this.rateFloat = rateFloat;
-    }
-
-    public LocalDate getCreateAt() {
-        return createAt;
-    }
-
-    public void setCreateAt(LocalDate createAt) {
-        this.createAt = createAt;
-    }
-
-    public LocalDate getUpdateAt() {
-        return updateAt;
-    }
-
-    public void setUpdateAt(LocalDate updateAt) {
-        this.updateAt = updateAt;
-    }
 }

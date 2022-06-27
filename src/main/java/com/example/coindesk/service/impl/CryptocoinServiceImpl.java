@@ -1,15 +1,12 @@
 package com.example.coindesk.service.impl;
 
 import com.example.coindesk.dao.CryptocoinDao;
-//import com.example.coindesk.dao.impl.CryptocoinDaoImpl;
+
 import com.example.coindesk.entity.Cryptocoin;
 import com.example.coindesk.service.CryptocoinService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.Modifying;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
 
 @Service
 public class CryptocoinServiceImpl implements CryptocoinService {

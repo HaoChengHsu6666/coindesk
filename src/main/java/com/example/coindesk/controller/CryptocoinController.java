@@ -5,8 +5,6 @@ import com.example.coindesk.service.CryptocoinService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Optional;
-
 @RestController
 @RequestMapping("/cryptocoin")
 public class CryptocoinController {
