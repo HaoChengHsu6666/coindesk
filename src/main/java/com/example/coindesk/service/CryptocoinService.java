@@ -7,7 +7,12 @@ import java.util.Optional;
 
 public interface CryptocoinService {
 
-    Optional<Cryptocoin> getCoinById(Integer id);
+    Cryptocoin getCoinById(Integer id);
 
-    Integer insertCryptocoin(Cryptocoin cryptocoin);
+    Cryptocoin insertCryptocoin(Cryptocoin cryptocoin);
+
+    Cryptocoin updateCryptocoinById(Cryptocoin cryptocoin,
+                                    Integer id);
+
+    void deleteCryptocoinById(Integer id);
 }
