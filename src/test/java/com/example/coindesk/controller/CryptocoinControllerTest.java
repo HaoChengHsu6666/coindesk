@@ -35,7 +35,7 @@ public class CryptocoinControllerTest {
 //                .andExpect(MockMvcResultMatchers.status().is(200));
 
 
-//        import MockMvcResultMatchers的static方法後即可簡寫成下列方式
+//        import MockMvcResultMatchers的static方法後即可簡寫成下列的方式
           mockMvc.perform(requestBuilder)
                   .andDo(print())
                   .andExpect(status().is(200))
