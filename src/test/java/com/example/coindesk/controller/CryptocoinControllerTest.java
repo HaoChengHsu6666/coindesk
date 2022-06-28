@@ -13,6 +13,8 @@ import org.springframework.test.web.servlet.RequestBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
+import javax.transaction.Transactional;
+
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.notNullValue;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
@@ -62,8 +64,9 @@ public class CryptocoinControllerTest {
         System.out.println("返回的 response body 為: " + body);
     }
         @Test
+        @Transactional
         @DisplayName("測試insert by MockMvc")
-        public void insert() throws Exception {
+        public void insertCoinData() throws Exception {
             RequestBuilder requestBuilder = MockMvcRequestBuilders
                     .post("/cryptocoin/insert")
                     //*******非常重要*******
@@ -79,8 +82,9 @@ public class CryptocoinControllerTest {
         }
 
         @Test
+        @Transactional
         @DisplayName("測試update by MockMvc")
-        public void update() throws Exception {
+        public void updateCoinData() throws Exception {
             RequestBuilder requestBuilder = MockMvcRequestBuilders
                     .put("/cryptocoin/update")
                     .contentType(MediaType.APPLICATION_JSON)
@@ -95,8 +99,9 @@ public class CryptocoinControllerTest {
         }
 
         @Test
+        @Transactional
         @DisplayName("測試delete by MockMvc")
-        public void delete() throws Exception {
+        public void deleteById() throws Exception {
             RequestBuilder requestBuilder = MockMvcRequestBuilders
                     .delete("/cryptocoin/delete/{id}",23);
 
