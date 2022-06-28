@@ -50,7 +50,7 @@ public class CryptocoinServiceImplTest {
         Cryptocoin theOldCoin = cryptocoinService.getCoinById(3);
         theOldCoin.setCode("BIG_DOGDOG_DER_GEGE");
 
-        Cryptocoin theNewCoin = cryptocoinService.updateCryptocoinById(theOldCoin);
+        Cryptocoin theNewCoin = cryptocoinService.updateCryptocoin(theOldCoin);
         assertEquals("Dogecoin",theNewCoin.getName());
         assertFalse("DOGE" == theNewCoin.getCode());
     }

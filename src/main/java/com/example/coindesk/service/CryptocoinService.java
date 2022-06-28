@@ -10,7 +10,7 @@ public interface CryptocoinService {
 
     Cryptocoin insertCryptocoin(Cryptocoin cryptocoin);
 
-    Cryptocoin updateCryptocoinById(Cryptocoin cryptocoin);
+    Cryptocoin updateCryptocoin(Cryptocoin cryptocoin);
 
     void deleteCryptocoinById(Integer id);
 }

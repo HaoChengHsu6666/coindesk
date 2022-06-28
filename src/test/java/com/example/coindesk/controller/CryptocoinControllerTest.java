@@ -1,5 +1,6 @@
 package com.example.coindesk.controller;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -26,6 +27,7 @@ public class CryptocoinControllerTest {
     private MockMvc mockMvc;
 
     @Test
+    @DisplayName("測試select by MockMvc")
     public void getCoinById() throws Exception {
 
         //似模擬API tester中創建Http request，以"設定URL路徑方式或參數"的請求
@@ -48,7 +50,7 @@ public class CryptocoinControllerTest {
                 //打印在console視窗上(方便做比對或加上jsonpath的內容)
                 .andDo(print())
                 .andExpect(status().is(200))
-                //"$"為此"JSON物件"，"."為"的"之意，取出此JSON物件的Id與後者是否相等
+                //"$"為此"JSON物件"，"."為"的"之意，取出此JSON物件的Id與後者測試的值是否相符
                 .andExpect(jsonPath("$.id", equalTo(2)))
                 .andExpect(jsonPath("$.name", notNullValue()))
                 //只能寫在最後一行
@@ -60,6 +62,7 @@ public class CryptocoinControllerTest {
         System.out.println("返回的 response body 為: " + body);
     }
         @Test
+        @DisplayName("測試insert by MockMvc")
         public void insert() throws Exception {
             RequestBuilder requestBuilder = MockMvcRequestBuilders
                     .post("/cryptocoin/insert")
@@ -67,11 +70,42 @@ public class CryptocoinControllerTest {
                     //使用POST方法時，需加入此行才能在requestbody內加入JSON參數
                     .contentType(MediaType.APPLICATION_JSON)
                     .content("{\n" +
-                            "\"name\": \"BUSD\",\n" +
-                            "\"code\": \"BUSD\"\n" +
+                            "\"name\": \"Tether\",\n" +
+                            "\"code\": \"USDT\"\n" +
                             "}");
             mockMvc.perform(requestBuilder)
+                    .andDo(print())
                     .andExpect(status().is(200));
+        }
 
+        @Test
+        @DisplayName("測試update by MockMvc")
+        public void update() throws Exception {
+            RequestBuilder requestBuilder = MockMvcRequestBuilders
+                    .put("/cryptocoin/update")
+                    .contentType(MediaType.APPLICATION_JSON)
+                    .content("{\n" +
+                            "  \"id\" : \"6\",\n" +
+                            "  \"name\": \"Zilliqa\",\n" +
+                            "  \"code\": \"ZIL\"\n" +
+                            "}");
+            mockMvc.perform(requestBuilder)
+                    .andDo(print())
+                    .andExpect(status().is(200));
+        }
+
+        @Test
+        @DisplayName("測試delete by MockMvc")
+        public void delete() throws Exception {
+            RequestBuilder requestBuilder = MockMvcRequestBuilders
+                    .delete("/cryptocoin/delete/{id}",23);
+
+            MvcResult mvcResult = mockMvc.perform(requestBuilder)
+                    .andDo(print())
+                    .andExpect(status().is(200))
+                    .andReturn();
+
+            String body = mvcResult.getResponse().getContentAsString();
+            System.out.println("返回的body為: "+ body);
         }
     }

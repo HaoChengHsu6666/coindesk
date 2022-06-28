@@ -27,8 +27,8 @@ public class CryptocoinController {
     }
 
     @PutMapping("/update")  //RequestBody中 "須給" Id
-    public String updateCryptocoinById(@RequestBody Cryptocoin cryptocoin){
-        cryptocoin = cryptocoinService.updateCryptocoinById(cryptocoin);
+    public String updateCryptocoin(@RequestBody Cryptocoin cryptocoin){
+        cryptocoin = cryptocoinService.updateCryptocoin(cryptocoin);
         return "已更新成功，更新的用戶ID為：" + cryptocoin.getId();
     }
 
