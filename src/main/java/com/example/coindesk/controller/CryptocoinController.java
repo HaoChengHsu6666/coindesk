@@ -3,6 +3,8 @@ package com.example.coindesk.controller;
 import com.example.coindesk.entity.Cryptocoin;
 import com.example.coindesk.service.CryptocoinService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -20,6 +22,7 @@ public class CryptocoinController {
     @PostMapping("/insert") //RequestBody中 "不須給" Id
     public String insertCryptocoin(@RequestBody Cryptocoin cryptocoin){
         cryptocoin =  cryptocoinService.insertCryptocoin(cryptocoin);
+//        ResponseEntity.status(HttpStatus.CREATED).body(cryptocoin);
         return "已新增成功，新增的用戶ID為：" + cryptocoin.getId();
     }
 
