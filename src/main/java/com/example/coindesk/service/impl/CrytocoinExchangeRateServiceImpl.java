@@ -21,4 +21,11 @@ public class CrytocoinExchangeRateServiceImpl implements CrytocoinExchangeRateSe
         return crytocoinExchangeRateDao.save(crytocoinExchangeRate);
     }
 
+    public CrytocoinExchangeRate updateRateDataById(CrytocoinExchangeRate crytocoinExchangeRate){
+        return crytocoinExchangeRateDao.save(crytocoinExchangeRate);
+    }
+
+    public void deleteRateDataById(Integer id){
+        crytocoinExchangeRateDao.deleteById(id);
+    }
 }

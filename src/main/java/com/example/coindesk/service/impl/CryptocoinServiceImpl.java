@@ -23,7 +23,7 @@ public class CryptocoinServiceImpl implements CryptocoinService {
         return cryptocoinDao.save(cryptocoin);
     }
 
-    public Cryptocoin updateCryptocoinById(Cryptocoin cryptocoin, Integer id){
+    public Cryptocoin updateCryptocoinById(Cryptocoin cryptocoin){
         return cryptocoinDao.save(cryptocoin);
     }
 

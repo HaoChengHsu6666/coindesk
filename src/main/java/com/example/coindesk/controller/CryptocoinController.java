@@ -17,16 +17,15 @@ public class CryptocoinController {
         return cryptocoinService.getCoinById(id);
     }
 
-    @PostMapping("/insert")
+    @PostMapping("/insert") //RequestBody中 "不須給" Id
     public String insertCryptocoin(@RequestBody Cryptocoin cryptocoin){
         cryptocoin =  cryptocoinService.insertCryptocoin(cryptocoin);
         return "已新增成功，新增的用戶ID為：" + cryptocoin.getId();
     }
 
-    @PutMapping("/update/{id}")
-    public String updateCryptocoinById(@RequestBody Cryptocoin cryptocoin,
-                                   @PathVariable Integer id){
-        cryptocoin = cryptocoinService.updateCryptocoinById(cryptocoin,id);
+    @PutMapping("/update")  //RequestBody中 "須給" Id
+    public String updateCryptocoinById(@RequestBody Cryptocoin cryptocoin){
+        cryptocoin = cryptocoinService.updateCryptocoinById(cryptocoin);
         return "已更新成功，更新的用戶ID為：" + cryptocoin.getId();
     }
 

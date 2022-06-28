@@ -8,4 +8,7 @@ public interface CrytocoinExchangeRateService {
 
     CrytocoinExchangeRate insertRateData(CrytocoinExchangeRate crytocoinExchangeRate);
 
+    CrytocoinExchangeRate updateRateDataById(CrytocoinExchangeRate crytocoinExchangeRate);
+
+    void deleteRateDataById(Integer id);
 }
