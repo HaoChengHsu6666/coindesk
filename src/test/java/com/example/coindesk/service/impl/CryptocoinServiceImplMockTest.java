@@ -40,7 +40,7 @@ public class CryptocoinServiceImplMockTest {
         //在findById裡給任何id值都會回傳定義的假物件
         Mockito.when(cryptocoinDao.findById(Mockito.any())).thenReturn(Optional.of(mockCoin));
         //另一種寫法...
-        Mockito.doReturn(Optional.of(mockCoin)).when(cryptocoinDao.findById(Mockito.any()));
+//        Mockito.doReturn(Optional.of(mockCoin)).when(cryptocoinDao.findById(Mockito.any()));
 
 
         Cryptocoin coin = cryptocoinService.getCoinById(3);

@@ -20,11 +20,11 @@ public class CryptocoinServiceImplTest {
     @Test
     @DisplayName("測試以Id取得加密貨幣資訊")
     public void getCoinById(){
-        Cryptocoin cryptocoin = cryptocoinService.getCoinById(14);
+        Cryptocoin cryptocoin = cryptocoinService.getCoinById(2);
         assertNotNull(cryptocoin);
-        assertEquals("Apecoin",cryptocoin.getName());
-        assertEquals("APE"  ,cryptocoin.getCode());
-        assertTrue("APE".equals(cryptocoin.getCode()));
+        assertEquals("Ether",cryptocoin.getName());
+        assertEquals("ETH"  ,cryptocoin.getCode());
+        assertTrue("ETH".equals(cryptocoin.getCode()));
     }
 
     @Transactional //測試完成後會強制將資料rollback，不會影響到資料表

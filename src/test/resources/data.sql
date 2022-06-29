@@ -1,0 +1,1 @@
+INSERT INTO `cryptocoin` VALUES (1,'bitcoin','BTC'),(2,'Ether','ETH'),(3,'Dogecoin','DOGE'),(5,'Lunacoin','LUNA'),(14,'Apecoin','APE');

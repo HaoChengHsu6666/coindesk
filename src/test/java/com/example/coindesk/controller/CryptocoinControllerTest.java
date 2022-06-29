@@ -89,9 +89,9 @@ public class CryptocoinControllerTest {
                     .put("/cryptocoin/update")
                     .contentType(MediaType.APPLICATION_JSON)
                     .content("{\n" +
-                            "  \"id\" : \"6\",\n" +
-                            "  \"name\": \"Zilliqa\",\n" +
-                            "  \"code\": \"ZIL\"\n" +
+                            "  \"id\" : \"5\",\n" +
+                            "  \"name\": \"Lunacoin\",\n" +
+                            "  \"code\": \"LUNA\"\n" +
                             "}");
             mockMvc.perform(requestBuilder)
                     .andDo(print())
@@ -103,7 +103,7 @@ public class CryptocoinControllerTest {
         @DisplayName("測試delete by MockMvc")
         public void deleteById() throws Exception {
             RequestBuilder requestBuilder = MockMvcRequestBuilders
-                    .delete("/cryptocoin/delete/{id}",23);
+                    .delete("/cryptocoin/delete/{id}",3);
 
             MvcResult mvcResult = mockMvc.perform(requestBuilder)
                     .andDo(print())
