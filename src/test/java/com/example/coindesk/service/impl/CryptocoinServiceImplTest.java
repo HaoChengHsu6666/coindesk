@@ -22,9 +22,9 @@ public class CryptocoinServiceImplTest {
     public void getCoinById(){
         Cryptocoin cryptocoin = cryptocoinService.getCoinById(2);
         assertNotNull(cryptocoin);
-        assertEquals("Ether",cryptocoin.getName());
-        assertEquals("ETH"  ,cryptocoin.getCode());
-        assertTrue("ETH".equals(cryptocoin.getCode()));
+        assertEquals("Ether",cryptocoin.getName().trim());
+        assertEquals("ETH"  ,cryptocoin.getCode().trim());
+        assertTrue("ETH".equals(cryptocoin.getCode().trim()));
     }
 
     @Transactional //測試完成後會強制將資料rollback，不會影響到資料表
@@ -32,6 +32,7 @@ public class CryptocoinServiceImplTest {
     @DisplayName("測試新增加密貨幣資訊")
     public void insertCryptocoin(){
         Cryptocoin cryptocoin = new Cryptocoin();
+        cryptocoin.setId(6);
         cryptocoin.setName("Tethercoin");
         cryptocoin.setCode("USDT");
 
@@ -51,7 +52,7 @@ public class CryptocoinServiceImplTest {
         theOldCoin.setCode("BIG_DOGDOG_DER_GEGE");
 
         Cryptocoin theNewCoin = cryptocoinService.updateCryptocoin(theOldCoin);
-        assertEquals("Dogecoin",theNewCoin.getName());
+        assertEquals("Dogecoin",theNewCoin.getName().trim());
         assertFalse("DOGE" == theNewCoin.getCode());
     }
 

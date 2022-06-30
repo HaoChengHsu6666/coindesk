@@ -1,7 +1,5 @@
-CREATE TABLE `cryptocoin` (
-                              `id` int NOT NULL AUTO_INCREMENT,
-                              `name` char(32) NOT NULL COMMENT '加密貨幣名稱',
-                              `code` char(8) NOT NULL COMMENT '加密貨幣代號',
-                              PRIMARY KEY (`id`),
-                              UNIQUE KEY `name_UNIQUE` (`name`)
+CREATE TABLE IF NOT EXISTS cryptocoin (
+    id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    name VARCHAR(32) NOT NULL ,
+    code VARCHAR(8) NOT NULL
 );
