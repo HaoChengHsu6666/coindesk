@@ -62,7 +62,7 @@ public class CryptocoinControllerTest {
         System.out.println("返回的 response body 為: " + body);
     }
         @Test
-        @Transactional
+//        @Transactional
         @DisplayName("測試insert by MockMvc")
         public void insertCoinData() throws Exception {
             RequestBuilder requestBuilder = MockMvcRequestBuilders
@@ -71,8 +71,8 @@ public class CryptocoinControllerTest {
                     //使用POST方法時，需加入此行才能在requestbody內加入JSON參數
                     .contentType(MediaType.APPLICATION_JSON)
                     .content("{\n" +
-                            "\"name\": \"Tether\",\n" +
-                            "\"code\": \"USDT\"\n" +
+                            "\"name\": \"STEPN\",\n" +
+                            "\"code\": \"GMT\"\n" +
                             "}");
             mockMvc.perform(requestBuilder)
                     .andDo(print())
